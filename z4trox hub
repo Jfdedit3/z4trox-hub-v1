@@ -1,0 +1,50 @@
+_Hawk = "ohhahtuhthttouttpwuttuaunbotwo"
+
+local Hawk = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHzCihan/IDream/main/Libs/NewLib.lua", true))()
+
+local Window = Hawk:Window({
+	ScriptName = "Z4trox HUB",
+	DestroyIfExists = true, --if false, gui wont disappear
+	Theme = "Pink" --Themes: Pink, White, Dark
+})
+
+Window:Close({
+	visibility = true, --if false, close button will disappear
+	Callback = function()
+		Window:Destroy() --Destroying Gui Function
+	end,
+})
+
+Window:Minimize({
+	visibility = true, --if false, close button will disappear
+	OpenButton = true, -- Visible = false etc, open button.
+	Callback = function()
+	end,
+})
+
+local tab1 = Window:Tab("Admin script") 
+-- Window:Tab("Tab","Tab Title")
+
+local newsec = tab1:Section("🤓🤓")
+
+local button = newsec:Button("Nameless admin","admin command script",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code'))()
+end)
+--newsec:Button("New Button",function() end)
+
+local button = newsec:Button("Infinite yield","admin command script",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+--newsec:Button("New Button",function() end)
+
+
+local tab1 = Window:Tab("Brookhaven rp") 
+-- Window:Tab("Tab","Tab Title")
+
+local newsec = tab1:Section("☠️☠️")
+
+local button = newsec:Button("Jul hub","Jul hub new ice hub",function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/JulHubz/JulHub/main/JulHub"))()
+end)
+--newsec:Button("New Button",function() end)
+
