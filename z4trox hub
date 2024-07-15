@@ -43,7 +43,7 @@ local tab1 = Window:Tab("Brookhaven rp")
 
 local newsec = tab1:Section("☠️☠️")
 
-local button = newsec:Button("r4d support solara","Jul hub new ice hub",function()
+local button = newsec:Button("r4d support solara","jul hub alternative (lol)",function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script"))()
 end)
 --newsec:Button("New Button",function() end)
