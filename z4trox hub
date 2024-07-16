@@ -33,7 +33,7 @@ end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Infinite yield","admin command script",function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/fuckusfm/infiniteyield-reborn/master/source'))()
 end)
 --newsec:Button("New Button",function() end)
 
