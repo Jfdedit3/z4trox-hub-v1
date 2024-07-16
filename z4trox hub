@@ -27,12 +27,12 @@ local tab1 = Window:Tab("Admin script")
 
 local newsec = tab1:Section("🤓🤓")
 
-local button = newsec:Button("Nameless admin","admin command script",function()
+local button = newsec:Button("Nameless admin v2.0","admin command script",function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code'))()
 end)
 --newsec:Button("New Button",function() end)
 
-local button = newsec:Button("Infinite yield","admin command script",function()
+local button = newsec:Button("Infinite yield Reborn v6.3.0","admin command script",function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/fuckusfm/infiniteyield-reborn/master/source'))()
 end)
 --newsec:Button("New Button",function() end)
