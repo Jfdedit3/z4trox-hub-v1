@@ -37,6 +37,10 @@ local button = newsec:Button("Infinite yield Reborn v6.3.1","admin command scrip
 end)
 --newsec:Button("New Button",function() end)
 
+local button = newsec:Button("Coming Soon","Coming Soon",function()
+	print("Button")
+end)
+--newsec:Button("New Button",function() end)
 
 local tab1 = Window:Tab("Brookhaven rp") 
 -- Window:Tab("Tab","Tab Title")
@@ -47,4 +51,10 @@ local button = newsec:Button("r4d support solara","jul hub alternative (lol)",fu
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script"))()
 end)
 --newsec:Button("New Button",function() end)
+
+local button = newsec:Button("Coming Soon","Coming Soon",function()
+	print("Button")
+end)
+--newsec:Button("New Button",function() end)
+
 
