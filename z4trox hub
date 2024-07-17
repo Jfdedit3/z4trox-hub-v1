@@ -38,7 +38,7 @@ end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Coming Soon","Coming Soon",function()
-	print("Button")
+	print("Coming Soon")
 end)
 --newsec:Button("New Button",function() end)
 
@@ -53,7 +53,7 @@ end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Coming Soon","Coming Soon",function()
-	print("Button")
+	print("Coming Soon")
 end)
 --newsec:Button("New Button",function() end)
 
