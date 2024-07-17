@@ -3,7 +3,7 @@ _Hawk = "ohhahtuhthttouttpwuttuaunbotwo"
 local Hawk = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHzCihan/IDream/main/Libs/NewLib.lua", true))()
 
 local Window = Hawk:Window({
-	ScriptName = "Z4trox HUB",
+	ScriptName = "Z4trox HUB | .gg/a8DhGKRNEq",
 	DestroyIfExists = true, --if false, gui wont disappear
 	Theme = "Pink" --Themes: Pink, White, Dark
 })
