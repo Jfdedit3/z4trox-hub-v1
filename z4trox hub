@@ -32,7 +32,7 @@ local button = newsec:Button("Nameless admin v2.0","admin command script",functi
 end)
 --newsec:Button("New Button",function() end)
 
-local button = newsec:Button("Infinite yield Reborn v6.3.1","admin command script",function()
+local button = newsec:Button("Infinite yield Reborn v6.3.2","admin command script",function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/fuckusfm/infiniteyield-reborn/master/source'))()
 end)
 --newsec:Button("New Button",function() end)
