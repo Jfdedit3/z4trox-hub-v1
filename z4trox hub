@@ -52,8 +52,8 @@ local button = newsec:Button("r4d support solara","jul hub alternative (lol)",fu
 end)
 --newsec:Button("New Button",function() end)
 
-local button = newsec:Button("Coming Soon","Coming Soon",function()
-	print("Coming Soon")
+local button = newsec:Button("Salvatore","universal script go to scriptblox for other game",function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/RFR-R1CH4RD/Loader/main/Salvatore.lua"))()
 end)
 --newsec:Button("New Button",function() end)
 
