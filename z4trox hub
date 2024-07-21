@@ -25,7 +25,7 @@ Window:Minimize({
 local tab1 = Window:Tab("Admin script") 
 -- Window:Tab("Tab","Tab Title")
 
-local newsec = tab1:Section("🤓🤓")
+local newsec = tab1:Section("admin ;-;")
 
 local button = newsec:Button("Nameless admin v2.0","admin command script",function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code'))()
@@ -45,7 +45,7 @@ end)
 local tab1 = Window:Tab("Brookhaven rp") 
 -- Window:Tab("Tab","Tab Title")
 
-local newsec = tab1:Section("☠️☠️")
+local newsec = tab1:Section("hub brookhaven")
 
 local button = newsec:Button("r4d support solara","jul hub alternative (lol)",function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script"))()
