@@ -52,7 +52,19 @@ local button = newsec:Button("r4d support solara","jul hub alternative (lol)",fu
 end)
 --newsec:Button("New Button",function() end)
 
-local button = newsec:Button("Salvatore","universal script go to scriptblox for other game",function()
+local button = newsec:Button("Salvatore","Salvatore game support:
+
+• Berry Avenue RP
+
+• Break In (Story)
+
+• Break In 2 (Story)
+
+• Brookhaven RP
+
+• Redcliff City RP
+
+• Tower of Hell",function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/RFR-R1CH4RD/Loader/main/Salvatore.lua"))()
 end)
 --newsec:Button("New Button",function() end)
