@@ -1,5 +1,9 @@
 _Hawk = "ohhahtuhthttouttpwuttuaunbotwo"
 
+local Notifications = Hawk:AddNotifications()
+
+Notifications:Notification("script loading pls wait","thx use this script","Done",1)
+
 local Hawk = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHzCihan/IDream/main/Libs/NewLib.lua", true))()
 
 local Window = Hawk:Window({
