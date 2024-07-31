@@ -3,7 +3,7 @@ game.StarterGui:SetCore("SendNotification", {
 
     Title = "Welcome";
 
-    Text = "Welcome";
+    Text = "Made by z4trox";
      
      Icon = "put rbxassetid decals";
 
@@ -77,3 +77,8 @@ end)
 
 local tab1 = Window:Tab("Coming Soon") 
 -- Window:Tab("Coming Soon","https://discord.gg/a8DhGKRNEq")
+
+local button = newsec:Button("Simple bypass chat v2","",function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
+end)
+--newsec:Button("New Button",function() end)
