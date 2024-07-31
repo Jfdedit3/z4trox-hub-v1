@@ -15,23 +15,23 @@ _Hawk = "ohhahtuhthttouttpwuttuaunbotwo"
 local Hawk = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHzCihan/IDream/main/Libs/NewLib.lua", true))()
 
 local Window = Hawk:Window({
-	ScriptName = "Z4trox HUB \ .gg/a8DhGKRNEq",
-	DestroyIfExists = true, --if false, gui wont disappear
-	Theme = "Pink" --Themes: Pink, White, Dark
+    ScriptName = "Z4trox HUB \ .gg/a8DhGKRNEq",
+    DestroyIfExists = true, --if false, gui wont disappear
+    Theme = "Pink" --Themes: Pink, White, Dark
 })
 
 Window:Close({
-	visibility = true, --if false, close button will disappear
-	Callback = function()
-		Window:Destroy() --Destroying Gui Function
-	end,
+    visibility = true, --if false, close button will disappear
+    Callback = function()
+        Window:Destroy() --Destroying Gui Function
+    end,
 })
 
 Window:Minimize({
-	visibility = true, --if false, close button will disappear
-	OpenButton = true, -- Visible = false etc, open button.
-	Callback = function()
-	end,
+    visibility = true, --if false, close button will disappear
+    OpenButton = true, -- Visible = false etc, open button.
+    Callback = function()
+    end,
 })
 
 local tab1 = Window:Tab("Admin script") 
@@ -40,17 +40,17 @@ local tab1 = Window:Tab("Admin script")
 local newsec = tab1:Section("admin ;-;")
 
 local button = newsec:Button("Nameless admin v2.0","admin command script",function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code'))()
 end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Infinite yield Reborn v6.3.4","admin command script",function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/fuckusfm/infiniteyield-reborn/master/source'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/fuckusfm/infiniteyield-reborn/master/source'))()
 end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Coming Soon","Coming Soon",function()
-	print("Coming Soon")
+    print("Coming Soon")
 end)
 --newsec:Button("New Button",function() end)
 
@@ -60,25 +60,26 @@ local tab1 = Window:Tab("Brookhaven rp")
 local newsec = tab1:Section("hub brookhaven")
 
 local button = newsec:Button("r4d support solara","jul hub alternative",function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script"))()
 end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Salvatore","go scriptblox for game supported",function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/RFR-R1CH4RD/Loader/main/Salvatore.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RFR-R1CH4RD/Loader/main/Salvatore.lua"))()
 end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("redz hub","brookhaven rp",function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/REDzHUB/main/REDzHUB"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/REDzHUB/main/REDzHUB"))()
 end)
 --newsec:Button("New Button",function() end)
 
 
-local tab1 = Window:Tab("Coming Soon") 
+local tab1 = Window:Tab("other script") 
 -- Window:Tab("Coming Soon","https://discord.gg/a8DhGKRNEq")
 
+local newsec = tab1:Section("admin ;-;")
+
 local button = newsec:Button("Simple bypass chat v2","",function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
 end)
---newsec:Button("New Button",function() end)
