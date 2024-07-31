@@ -1,3 +1,15 @@
+local players = game:GetService("Players")
+game.StarterGui:SetCore("SendNotification", {
+
+    Title = "Welcome";
+
+    Text = "Welcome";
+     
+     Icon = "put rbxassetid decals";
+
+     Duration = 5
+})
+
 _Hawk = "ohhahtuhthttouttpwuttuaunbotwo"
 
 local Hawk = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHzCihan/IDream/main/Libs/NewLib.lua", true))()
