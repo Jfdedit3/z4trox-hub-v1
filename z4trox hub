@@ -49,6 +49,12 @@ local button = newsec:Button("Infinite yield Reborn v6.3.4","admin command scrip
 end)
 --newsec:Button("New Button",function() end)
 
+local button = newsec:Button("Mada hub","hiv admin",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Jfdedit3/Mada-hub/main/DEBU.lua'))()
+end)
+--newsec:Button("New Button",function() end)
+
+
 local button = newsec:Button("Coming Soon","Coming Soon",function()
     print("Coming Soon")
 end)
