@@ -65,7 +65,7 @@ local tab1 = Window:Tab("Brookhaven rp")
 
 local newsec = tab1:Section("hub brookhaven")
 
-local button = newsec:Button("r4d support solara","jul hub alternative",function()
+local button = newsec:Button("r4d support solara","brookhaven rp",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script"))()
 end)
 --newsec:Button("New Button",function() end)
@@ -75,7 +75,7 @@ local button = newsec:Button("Salvatore","go scriptblox for game supported",func
 end)
 --newsec:Button("New Button",function() end)
 
-local button = newsec:Button("redz hub","brookhaven rp",function()
+local button = newsec:Button("redz hub","jul hub alternative",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/REDzHUB/main/REDzHUB"))()
 end)
 --newsec:Button("New Button",function() end)
@@ -84,7 +84,7 @@ end)
 local tab1 = Window:Tab("other script") 
 -- Window:Tab("Coming Soon","https://discord.gg/a8DhGKRNEq")
 
-local newsec = tab1:Section("admin ;-;")
+local newsec = tab1:Section("chat bypass")
 
 local button = newsec:Button("Simple bypass chat v2","",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
