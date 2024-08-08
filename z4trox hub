@@ -5,7 +5,7 @@ game.StarterGui:SetCore("SendNotification", {
 
     Text = "Made by z4trox";
      
-     Icon = "put rbxassetid decals";
+     Icon = "http://www.roblox.com/asset/?id=6031098704";
 
      Duration = 5
 })
