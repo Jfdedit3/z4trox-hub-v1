@@ -89,3 +89,7 @@ local newsec = tab1:Section("chat bypass")
 local button = newsec:Button("Simple bypass chat v2","",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
 end)
+
+local button = newsec:Button("Simple Spy Mobile","",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/SimpleSpyMobile"))()
+end)
