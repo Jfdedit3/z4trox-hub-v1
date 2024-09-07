@@ -50,7 +50,7 @@ end)
 --newsec:Button("New Button",function() end)
 
 local button = newsec:Button("Mada hub","hub admin",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Jfdedit3/Mada-hub/main/DEBU.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Jfdedit3/Mada-hub/main/Mada%20hub%20v%202.1'))()
 end)
 --newsec:Button("New Button",function() end)
 
