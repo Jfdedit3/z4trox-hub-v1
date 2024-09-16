@@ -49,6 +49,12 @@ local button = newsec:Button("Infinite yield Reborn v6.3.4","admin command scrip
 end)
 --newsec:Button("New Button",function() end)
 
+local button = newsec:Button("Infinite Z (mod by me)","admin command script",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Infinite-z-/main/Infinite_Z.lua", true))()
+end)
+--newsec:Button("New Button",function() end)
+
+
 local button = newsec:Button("Mada hub","hub admin",function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Jfdedit3/Mada-hub/main/Mada%20hub%20v%202.1'))()
 end)
