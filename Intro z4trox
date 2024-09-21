@@ -109,6 +109,5 @@ local function MNQEF_fake_script()
 	wait(1.5)
 	script.Parent:TweenSize(UDim2.new(0,0,0,158), "Out", "Quad", 0.5, true)
 	wait(0.5)
-	loadstring(game:HttpGet(('https://raw.githubusercontent.com/Jfdedit3/z4trox-hub-v1/main/z4trox%20hub'),true))()
-end
+	end
 coroutine.wrap(MNQEF_fake_script)()
