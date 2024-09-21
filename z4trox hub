@@ -95,4 +95,3 @@ end)
 local button = newsec:Button("Simple Spy Mobile","",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/SimpleSpyMobile"))()
 end)
-
