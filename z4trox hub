@@ -96,10 +96,6 @@ local button = newsec:Button("Simple Spy Mobile","",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/SimpleSpyMobile"))()
 end)
 
-local button = newsec:Button("Simple Spy Mobile","",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Honoka-sis/refs/heads/main/System_broken.lua"))()
-end)
-
 local button = newsec:Button("Honoka sis","(Systembroken)",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/z4trox-hub-v1/refs/heads/main/Intro%20z4trox"))()
 end)
