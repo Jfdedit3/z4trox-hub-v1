@@ -1,6 +1,6 @@
 local TweenService = game:GetService("TweenService")
 
--- UI Creation
+-- Création de l'interface
 local CCOpeningScreen = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local BlurEffect = Instance.new("BlurEffect")
@@ -13,11 +13,11 @@ local LoadBarFill = Instance.new("Frame")
 local Corner = Instance.new("UICorner")
 local CornerMain = Instance.new("UICorner")
 
--- Blur Effect Setup
+-- Configuration de l'effet de flou
 BlurEffect.Parent = game:GetService("Lighting")
 BlurEffect.Size = 0
 
--- Base Configuration
+-- Configuration de base
 CCOpeningScreen.Name = "CCOpeningScreen"
 CCOpeningScreen.Parent = game.CoreGui
 CCOpeningScreen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -34,7 +34,7 @@ MainFrame.Size = UDim2.new(0, 0, 0, 180)
 CornerMain.CornerRadius = UDim.new(0, 10)
 CornerMain.Parent = MainFrame
 
--- Logo Setup
+-- Configuration de l'image
 ImageLogo.Name = "ImageLogo"
 ImageLogo.Parent = MainFrame
 ImageLogo.BackgroundTransparency = 1
@@ -44,37 +44,29 @@ ImageLogo.Size = UDim2.new(0, 70, 0, 70)
 ImageLogo.Image = "rbxassetid://101133628857824"
 ImageLogo.ImageTransparency = 1
 
--- Create Advanced Text Effects
-local function createAdvancedTextEffects(label)
-    -- Gradient Effect
+-- Textes avec effets avancés
+local function createTextEffect(label)
     local gradient = Instance.new("UIGradient")
     gradient.Color = ColorSequence.new({
         ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
-        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(220, 220, 220)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(200, 200, 200))
     })
     gradient.Parent = label
     
-    -- Glow Effect
-    local glow = Instance.new("ImageLabel")
-    glow.BackgroundTransparency = 1
-    glow.Image = "rbxassetid://4996891970" -- Radial gradient
-    glow.ImageColor3 = Color3.fromRGB(255, 255, 255)
-    glow.ImageTransparency = 1
-    glow.Size = UDim2.new(1.2, 0, 1.2, 0)
-    glow.Position = UDim2.new(-0.1, 0, -0.1, 0)
-    glow.ZIndex = label.ZIndex - 1
-    glow.Parent = label
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(255, 255, 255)
+    stroke.Transparency = 1
+    stroke.Thickness = 1
+    stroke.Parent = label
     
-    return gradient, glow
+    return stroke, gradient
 end
 
--- Text Setup with Enhanced Animations
 T1.Name = "T1"
 T1.Parent = MainFrame
 T1.AnchorPoint = Vector2.new(0, 0.5)
 T1.BackgroundTransparency = 1
-T1.Position = UDim2.new(1, 0, 0.35, 0) -- Start from right
+T1.Position = UDim2.new(0.35, 0, 0.35, 0)
 T1.Size = UDim2.new(0, 180, 0, 25)
 T1.Font = Enum.Font.GothamBold
 T1.Text = "Welcome To"
@@ -82,13 +74,13 @@ T1.TextColor3 = Color3.fromRGB(255, 255, 255)
 T1.TextSize = 20
 T1.TextTransparency = 1
 T1.TextXAlignment = Enum.TextXAlignment.Left
-local gradient1, glow1 = createAdvancedTextEffects(T1)
+local stroke1, gradient1 = createTextEffect(T1)
 
 T2.Name = "T2"
 T2.Parent = MainFrame
 T2.AnchorPoint = Vector2.new(0, 0.5)
 T2.BackgroundTransparency = 1
-T2.Position = UDim2.new(-1, 0, 0.55, 0) -- Start from left
+T2.Position = UDim2.new(0.35, 0, 0.55, 0)
 T2.Size = UDim2.new(0, 180, 0, 35)
 T2.Font = Enum.Font.GothamBlack
 T2.Text = "z4trox Hub!"
@@ -96,9 +88,8 @@ T2.TextColor3 = Color3.fromRGB(255, 255, 255)
 T2.TextSize = 30
 T2.TextTransparency = 1
 T2.TextXAlignment = Enum.TextXAlignment.Left
-local gradient2, glow2 = createAdvancedTextEffects(T2)
+local stroke2, gradient2 = createTextEffect(T2)
 
--- Status Text
 T3.Name = "T3"
 T3.Parent = MainFrame
 T3.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -110,7 +101,7 @@ T3.TextColor3 = Color3.fromRGB(200, 200, 200)
 T3.TextSize = 14
 T3.TextTransparency = 1
 
--- Loading Bar Setup
+-- Barre de chargement améliorée
 LoadBar.Name = "LoadBar"
 LoadBar.Parent = MainFrame
 LoadBar.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -127,7 +118,7 @@ LoadBarFill.Size = UDim2.new(0, 0, 1, 0)
 local CornerFill = Corner:Clone()
 CornerFill.Parent = LoadBarFill
 
--- Enhanced Animation Function
+-- Fonction d'animation améliorée
 local function animate(object, properties, time, style, direction, delay)
     delay = delay or 0
     wait(delay)
@@ -140,83 +131,80 @@ local function animate(object, properties, time, style, direction, delay)
     return tween
 end
 
--- Main Animation Script
+-- Animation des gradients
+local function animateGradient(gradient)
+    local offset = 0
+    while wait() do
+        offset = (offset + 0.02) % 1
+        gradient.Offset = Vector2.new(offset, offset)
+    end
+end
+
+-- Script principal
 local function main()
-    -- Initial Blur
+    -- Effet de flou initial
     animate(BlurEffect, {Size = 20}, 0.5, "Quad", "Out")
     
-    -- Open MainFrame
+    -- Animation d'ouverture
     wait(0.3)
     animate(MainFrame, {Size = UDim2.new(0, 340, 0, 180)}, 0.8, "Back", "Out")
     
-    -- Logo Animation
+    -- Animation de l'image
     wait(0.2)
     animate(ImageLogo, {ImageTransparency = 0}, 0.6, "Quad", "Out")
     
-    -- Enhanced T1 Animation Sequence
+    -- Animation des textes avec effets
     wait(0.3)
-    -- Slide in from right with bounce
-    animate(T1, {Position = UDim2.new(0.35, 0, 0.35, 0)}, 0.8, "Back", "Out")
-    animate(T1, {TextTransparency = 0}, 0.4, "Quad", "Out")
-    animate(glow1, {ImageTransparency = 0.7}, 0.6, "Quad", "Out")
     
-    -- Gradient animation for T1
-    local t1Offset = 0
-    coroutine.wrap(function()
-        while wait() do
-            t1Offset = (t1Offset + 0.02) % 1
-            gradient1.Offset = Vector2.new(t1Offset, 0)
-        end
-    end)()
+    -- Animation T1
+    animate(T1, {TextTransparency = 0}, 0.6, "Quad", "Out")
+    animate(T1, {Position = UDim2.new(0.35, 0, 0.35, 0)}, 0.8, "Back", "Out")
+    animate(stroke1, {Transparency = 0.8}, 0.6, "Quad", "Out")
     
     wait(0.2)
     
-    -- Enhanced T2 Animation Sequence
-    -- Slide in from left with bounce and scale effect
+    -- Animation T2
+    animate(T2, {TextTransparency = 0}, 0.6, "Quad", "Out")
     animate(T2, {Position = UDim2.new(0.35, 0, 0.55, 0)}, 0.8, "Back", "Out")
-    animate(T2, {TextTransparency = 0}, 0.4, "Quad", "Out")
-    animate(glow2, {ImageTransparency = 0.7}, 0.6, "Quad", "Out")
+    animate(stroke2, {Transparency = 0.8}, 0.6, "Quad", "Out")
     
-    -- Gradient animation for T2
-    local t2Offset = 0.5
-    coroutine.wrap(function()
-        while wait() do
-            t2Offset = (t2Offset + 0.02) % 1
-            gradient2.Offset = Vector2.new(t2Offset, 0)
-        end
-    end)()
+    -- Démarrage des animations de gradient
+    coroutine.wrap(function() animateGradient(gradient1) end)()
+    coroutine.wrap(function() animateGradient(gradient2) end)()
     
     wait(0.2)
     animate(T3, {TextTransparency = 0}, 0.6, "Quad", "Out")
     
-    -- Loading Sequence
+    -- Animation de la barre de chargement avec messages
     local loadingSteps = {
-        {progress = 0.2, text = "System initialization...", time = 0.6},
-        {progress = 0.4, text = "Loading modules...", time = 0.5},
-        {progress = 0.6, text = "Setting up interface...", time = 0.5},
-        {progress = 0.8, text = "Final preparations...", time = 0.4},
-        {progress = 1, text = "Ready!", time = 0.3}
+        {progress = 0.2, text = "Initialisation du système...", time = 0.6},
+        {progress = 0.4, text = "Chargement des modules...", time = 0.5},
+        {progress = 0.6, text = "Configuration de l'interface...", time = 0.5},
+        {progress = 0.8, text = "Préparation finale...", time = 0.4},
+        {progress = 1, text = "Prêt !", time = 0.3}
     }
     
     for _, step in ipairs(loadingSteps) do
         T3.Text = step.text
-        animate(LoadBarFill, {Size = UDim2.new(step.progress, 0, 1, 0)}, step.time, "Quad", "Out")
+        animate(LoadBarFill, {
+            Size = UDim2.new(step.progress, 0, 1, 0),
+            BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        }, step.time, "Quad", "Out")
         wait(step.time + 0.2)
     end
     
     wait(0.8)
     
-    -- Closing Animation
+    -- Animation de fermeture
     animate(ImageLogo, {ImageTransparency = 1}, 0.3, "Quad", "In")
     animate(LoadBarFill, {BackgroundTransparency = 1}, 0.3, "Quad", "In")
     animate(LoadBar, {BackgroundTransparency = 1}, 0.3, "Quad", "In")
-    -- Slide out animations
-    animate(T1, {Position = UDim2.new(1.2, 0, 0.35, 0), TextTransparency = 1}, 0.5, "Back", "In")
-    animate(T2, {Position = UDim2.new(-0.2, 0, 0.55, 0), TextTransparency = 1}, 0.5, "Back", "In")
+    animate(T1, {TextTransparency = 1, Position = UDim2.new(0.35, -50, 0.35, 0)}, 0.3, "Quad", "In")
+    animate(T2, {TextTransparency = 1, Position = UDim2.new(0.35, -50, 0.55, 0)}, 0.3, "Quad", "In")
     animate(T3, {TextTransparency = 1}, 0.3, "Quad", "In")
     animate(BlurEffect, {Size = 0}, 0.5, "Quad", "In")
     
-    wait(0.5)
+    wait(0.3)
     animate(MainFrame, {Size = UDim2.new(0, 0, 0, 180)}, 0.5, "Back", "In")
     
     wait(0.5)
