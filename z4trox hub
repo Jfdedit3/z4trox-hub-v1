@@ -177,11 +177,11 @@ local function main()
     
     -- Animation de la barre de chargement avec messages
     local loadingSteps = {
-        {progress = 0.2, text = "Initialisation du système...", time = 0.6},
-        {progress = 0.4, text = "Chargement des modules...", time = 0.5},
-        {progress = 0.6, text = "Configuration de l'interface...", time = 0.5},
-        {progress = 0.8, text = "Préparation finale...", time = 0.4},
-        {progress = 1, text = "Prêt !", time = 0.3}
+        {progress = 0.2, text = "System initialization...", time = 0.6},
+        {progress = 0.4, text = "Loading modules...", time = 0.5},
+        {progress = 0.6, text = "Configuring interface...", time = 0.5},
+        {progress = 0.8, text = "Final preparation...", time = 0.4},
+        {progress = 1, text = "Ready!", time = 0.3}
     }
     
     for _, step in ipairs(loadingSteps) do
