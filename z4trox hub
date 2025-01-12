@@ -214,5 +214,5 @@ end
 
 coroutine.wrap(main)()
 
-wait(1)
+wait(2.5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/z4trox-hub-v1/refs/heads/main/Intro%20z4trox"))()
