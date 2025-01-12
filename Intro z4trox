@@ -139,7 +139,7 @@ OtherSection:AddButton({
 OtherSection:AddButton({
     Name = "Hatsumi",
     Callback = function()
-        print("Hatsumi clicked!")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Hastumi/refs/heads/main/main_v1.lua"))()
     end
 })
 
