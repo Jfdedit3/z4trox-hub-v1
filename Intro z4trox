@@ -132,7 +132,7 @@ local OtherSection = OtherTab:AddSection({
 OtherSection:AddButton({
     Name = "mada hub",
     Callback = function()
-        print("mada hub clicked!")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Jfdedit3/refs/heads/main/Mada%20hub%20v3.6"))()
     end
 })
 
