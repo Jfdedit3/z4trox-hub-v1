@@ -205,14 +205,17 @@ local function main()
     animate(BlurEffect, {Size = 0}, 0.5, "Quad", "In")
     
     wait(0.3)
-    animate(MainFrame, {Size = UDim2.new(0, 0, 0, 180)}, 0.5, "Back", "In")
+    local finalTween = animate(MainFrame, {Size = UDim2.new(0, 0, 0, 180)}, 0.5, "Back", "In")
     
-    wait(0.5)
+    -- Attendre que l'animation finale soit terminée
+    finalTween.Completed:Wait()
+    
+    -- Nettoyer
     CCOpeningScreen:Destroy()
     BlurEffect:Destroy()
+    
+    -- Exécuter le loadstring une fois l'animation terminée
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/z4trox-hub-v1/refs/heads/main/Intro%20z4trox"))()
 end
 
 coroutine.wrap(main)()
-
-wait(2.5)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/z4trox-hub-v1/refs/heads/main/Intro%20z4trox"))()
