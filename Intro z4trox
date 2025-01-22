@@ -1,24 +1,27 @@
--- Load the OrionLib library
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Create the main window
-local Window = OrionLib:MakeWindow({Name = "z4troxHub BrookHavenRp", HidePremium = false, SaveConfig = true, ConfigFolder = "z4troxHubConfig"})
+local Window = Rayfield:CreateWindow({
+    Name = "z4troxHub BrookHavenRp",
+    LoadingTitle = "z4troxHub",
+    LoadingSubtitle = "by z4trox",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "z4troxHubConfig",
+        FileName = "Config"
+    }
+})
 
 -- Create the Avatar tab
-local AvatarTab = Window:MakeTab({
-    Name = "Avatar",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+local AvatarTab = Window:CreateTab("Avatar", 4483345998)
 
--- Add a section to Avatar tab for Man
-local ManSection = AvatarTab:AddSection({
-    Name = "Man"
-})
+-- Create sections in Avatar tab
+local ManSection = AvatarTab:CreateSection("Man")
 
--- Add a button to Man section
-ManSection:AddButton({
+-- Add button to Man section
+AvatarTab:CreateButton({
     Name = "inf15 thin",
+    Info = "Changes your avatar to inf15 thin",
     Callback = function()
         local args = {
             [1] = "CharacterChange",
@@ -32,19 +35,15 @@ ManSection:AddButton({
             },
             [3] = "z4troxhub"
         }
-
         game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
     end
 })
 
--- Add a section to Avatar tab for Woman
-local WomanSection = AvatarTab:AddSection({
-    Name = "Woman"
-})
+local WomanSection = AvatarTab:CreateSection("Woman")
 
--- Add a button to Woman section
-WomanSection:AddButton({
+AvatarTab:CreateButton({
     Name = "Blush Fashion Doll (Black Torso)",
+    Info = "Changes your avatar to Blush Fashion Doll",
     Callback = function()
         local args = {
             [1] = "CharacterChange",
@@ -58,19 +57,15 @@ WomanSection:AddButton({
             },
             [3] = "z4troxhub"
         }
-
         game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
     end
 })
 
--- Add a section to Avatar tab for Girl/Boy
-local GirlBoySection = AvatarTab:AddSection({
-    Name = "Girl/Boy"
-})
+local GirlBoySection = AvatarTab:CreateSection("Girl/Boy")
 
--- Add a button to Girl/Boy section
-GirlBoySection:AddButton({
+AvatarTab:CreateButton({
     Name = "Mini Plushie",
+    Info = "Changes your avatar to Mini Plushie",
     Callback = function()
         local args = {
             [1] = "CharacterChange",
@@ -84,77 +79,56 @@ GirlBoySection:AddButton({
             },
             [3] = "z4troxhub"
         }
-
         game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
     end
 })
 
 -- Create the Music tab
-local MusicTab = Window:MakeTab({
-    Name = "Music",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+local MusicTab = Window:CreateTab("Music", 4483345998)
 
--- Add a section to Music tab
-local MusicSection = MusicTab:AddSection({
-    Name = "Music Section"
-})
+local MusicSection = MusicTab:CreateSection("Music Section")
 
--- Add a textbox to Music section
-MusicSection:AddTextbox({
+-- Add input field to Music section
+MusicTab:CreateInput({
     Name = "Enter Music ID",
-    Default = "",
-    TextDisappear = true,
+    PlaceholderText = "Enter ID here",
+    RemoveTextAfterFocusLost = true,
     Callback = function(Value)
         local args = {
             [1] = "PickingScooterMusicText",
             [2] = Value
         }
-
         game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
     end
 })
 
 -- Create the Other tab
-local OtherTab = Window:MakeTab({
-    Name = "Other",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+local OtherTab = Window:CreateTab("Other", 4483345998)
 
--- Add a section to Other tab
-local OtherSection = OtherTab:AddSection({
-    Name = "Other Section"
-})
+local OtherSection = OtherTab:CreateSection("Other Section")
 
 -- Add buttons to Other section
-OtherSection:AddButton({
+OtherTab:CreateButton({
     Name = "mada hub",
+    Info = "Load mada hub",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Jfdedit3/refs/heads/main/Mada%20hub%20v3.6"))()
     end
 })
 
-OtherSection:AddButton({
+OtherTab:CreateButton({
     Name = "Hatsumi",
+    Info = "Load Hatsumi",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Hastumi/refs/heads/main/main_v1.lua"))()
     end
 })
 
 -- Create the Credit tab
-local CreditTab = Window:MakeTab({
-    Name = "Credit",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+local CreditTab = Window:CreateTab("Credit", 4483345998)
 
--- Add a section to Credit tab
-local CreditSection = CreditTab:AddSection({
-    Name = "Credits"
-})
+local CreditSection = CreditTab:CreateSection("Credits")
 
--- Add elements to Credit tab
-CreditTab:AddLabel("Created by z4trox")
-CreditTab:AddLabel("Special thanks to the OrionLib team")
+-- Add labels to Credit tab
+CreditTab:CreateLabel("Created by z4trox")
+CreditTab:CreateLabel("Special thanks to the Rayfield team")
