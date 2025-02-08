@@ -1,134 +1,199 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
--- Create the main window
-local Window = Rayfield:CreateWindow({
-    Name = "z4troxHub BrookHavenRp",
-    LoadingTitle = "z4troxHub",
-    LoadingSubtitle = "by z4trox",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = "z4troxHubConfig",
-        FileName = "Config"
+local Window = Fluent:CreateWindow({
+    Title = "Brookhaven Rp🏡",
+    SubTitle = "by (z4trox hub)",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(480, 310),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+-- Fonction permettant de gérer le changement d'avatar.
+-- Si le paramètre "id" est un nombre, on crée une table par défaut,
+-- sinon, on considère qu'une table complète a été fournie.
+local function fireAvatarChange(id, notificationTitle)
+    local argsTable
+    if type(id) == "table" then
+        argsTable = id  -- On s'attend à une table avec les indices [1] à [6]
+    else
+        argsTable = {1, 1, 1, 1, 1, id}
+    end
+
+    local args = {
+        [1] = "CharacterChange",
+        [2] = argsTable,
+        [3] = "z4troxhub"
     }
+
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local starterGui = game:GetService("StarterGui")
+
+    if replicatedStorage and starterGui then
+        local remote = replicatedStorage.RE:FindFirstChild("1Avata1rOrigina1l")
+        if remote then
+            remote:FireServer(unpack(args))
+            starterGui:SetCore("SendNotification", {
+                Title = notificationTitle,
+                Text = "Wait Please 1-10 Seconds",
+                Duration = 5
+            })
+        end
+    end
+end
+
+local Tabs = {
+    Credits = Window:AddTab({ Title = "z4trox Hub Tab", Icon = "scroll" }),
+    Avatar = Window:AddTab({ Title = "Avatar Tab", Icon = "shirt" }),
+    Bundles = Window:AddTab({ Title = "Bundle Tab", Icon = "users" })
+}
+
+-----------------------------------------------------------
+-- Section Avatar (général)
+-----------------------------------------------------------
+Tabs.Avatar:AddSection("Head ID (❓)/Yellow Pastel (🟡)")
+
+Tabs.Avatar:AddInput("Head ID (❓)", {
+    Title = "Head ID (❓)",
+    Default = "",
+    Placeholder = "ID",
+    Numeric = true,
+    Finished = true,
+    Callback = function(s)
+        -- On s'assure que la valeur saisie est un nombre.
+        fireAvatarChange(tonumber(s), "Loading")
+        wait(1)
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Done",
+            Text = "Successfully ✅",
+            Duration = 3
+        })
+    end
 })
 
--- Create the Avatar tab
-local AvatarTab = Window:CreateTab("Avatar", 4483345998)
-
--- Create sections in Avatar tab
-local ManSection = AvatarTab:CreateSection("Man")
-
--- Add button to Man section
-AvatarTab:CreateButton({
-    Name = "inf15 thin",
-    Info = "Changes your avatar to inf15 thin",
+Tabs.Avatar:AddButton({
+    Title = "Pastel Yellow (🟡)",
+    Description = "",
     Callback = function()
-        local args = {
-            [1] = "CharacterChange",
-            [2] = {
-                [1] = 17873152058,
-                [2] = 17873151683,
-                [3] = 17873151726,
-                [4] = 17873151827,
-                [5] = 17873152017,
-                [6] = 1
-            },
-            [3] = "z4troxhub"
-        }
-        game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+        -- Ici, on passe une chaîne. Selon l'implémentation côté serveur,
+        -- ce cas peut être géré de manière spécifique.
+        fireAvatarChange("Pastel yellow", "Pastel Yellow Applied")
     end
 })
 
-local WomanSection = AvatarTab:CreateSection("Woman")
+Tabs.Avatar:AddSection("Character Head (👤)")
 
-AvatarTab:CreateButton({
-    Name = "Blush Fashion Doll (Black Torso)",
-    Info = "Changes your avatar to Blush Fashion Doll",
+Tabs.Avatar:AddButton({
+    Title = "Headless Horseman (👤)",
+    Description = "Working 🔨",
     Callback = function()
-        local args = {
-            [1] = "CharacterChange",
-            [2] = {
-                [1] = 96491916349570,
-                [2] = 86499698,
-                [3] = 86499716,
-                [4] = 0,
-                [5] = 0,
-                [6] = 0
-            },
-            [3] = "z4troxhub"
-        }
-        game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+        fireAvatarChange(134082579, "Headless Horseman")
     end
 })
 
-local GirlBoySection = AvatarTab:CreateSection("Girl/Boy")
-
-AvatarTab:CreateButton({
-    Name = "Mini Plushie",
-    Info = "Changes your avatar to Mini Plushie",
+Tabs.Avatar:AddButton({
+    Title = "Blaze Burner (👤)",
+    Description = "Working 🔨",
     Callback = function()
-        local args = {
-            [1] = "CharacterChange",
-            [2] = {
-                [1] = 18865136555,
-                [2] = 14579959062,
-                [3] = 14579959191,
-                [4] = 14579959249,
-                [5] = 14579963667,
-                [6] = 1
-            },
-            [3] = "z4troxhub"
-        }
-        game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+        fireAvatarChange(3210773801, "Blaze Burner")
     end
 })
 
--- Create the Music tab
-local MusicTab = Window:CreateTab("Music", 4483345998)
-
-local MusicSection = MusicTab:CreateSection("Music Section")
-
--- Add input field to Music section
-MusicTab:CreateInput({
-    Name = "Enter Music ID",
-    PlaceholderText = "Enter ID here",
-    RemoveTextAfterFocusLost = true,
-    Callback = function(Value)
-        local args = {
-            [1] = "PickingScooterMusicText",
-            [2] = Value
-        }
-        game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-    end
-})
-
--- Create the Other tab
-local OtherTab = Window:CreateTab("Other", 4483345998)
-
-local OtherSection = OtherTab:CreateSection("Other Section")
-
--- Add buttons to Other section
-OtherTab:CreateButton({
-    Name = "mada hub",
-    Info = "Load mada hub",
+Tabs.Avatar:AddButton({
+    Title = "Korblox DeathSpeaker (👤)",
+    Description = "Working 🔨",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Jfdedit3/refs/heads/main/Mada%20hub%20v3.6"))()
+        fireAvatarChange(16580493236, "Korblox DeathSpeaker")
     end
 })
 
-OtherTab:CreateButton({
-    Name = "Hatsumi",
-    Info = "Load Hatsumi",
+Tabs.Avatar:AddSection("Classic Head (👥)")
+
+Tabs.Avatar:AddButton({
+    Title = "Classic Head (👥)",
+    Description = "Working 🔨",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Hastumi/refs/heads/main/main_v1.lua"))()
+        fireAvatarChange(746767604, "Classic Head")
     end
 })
 
--- Create the Credit tab
-local CreditTab = Window:CreateTab("Credit", 4483345998)
+Tabs.Avatar:AddButton({
+    Title = "Strong Jaw (👥)",
+    Description = "Working 🔨",
+    Callback = function()
+        fireAvatarChange(616399508, "Strong Jaw")
+    end
+})
 
-local CreditSection = CreditTab:CreateSection("Credits")
+Tabs.Avatar:AddButton({
+    Title = "Narrow Head (👥)",
+    Description = "Working 🔨",
+    Callback = function()
+        fireAvatarChange(746774687, "Narrow Head")
+    end
+})
 
--- Add labels to Credit tab
-CreditTab:CreateLabel("Created by z4trox")
-CreditTab:CreateLabel("Special thanks to the Rayfield team")
+Tabs.Avatar:AddButton({
+    Title = "Chiseled Head (👥)",
+    Description = "Working 🔨",
+    Callback = function()
+        fireAvatarChange(616387160, "Chiseled Head")
+    end
+})
+
+Tabs.Avatar:AddButton({
+    Title = "Paragon Head (👥)",
+    Description = "Working 🔨",
+    Callback = function()
+        fireAvatarChange(616398268, "Paragon Head")
+    end
+})
+
+-----------------------------------------------------------
+-- Section Bundles (avatars spécifiques via Rayfield IDs)
+-----------------------------------------------------------
+Tabs.Bundles:AddButton({
+    Title = "Inf15 Thin",
+    Description = "(Boy) U Need Body Avatar",
+    Callback = function()
+        fireAvatarChange({
+            17873152058, 17873151683, 17873151726, 17873151827, 17873152017, 1
+        }, "Inf15 Thin")
+    end
+})
+
+Tabs.Bundles:AddButton({
+    Title = "Blush Fashion Doll (Black Torso)",
+    Description = "(Girl) Woman Arm/No Leg",
+    Callback = function()
+        fireAvatarChange({
+            96491916349570, 86499698, 86499716, 0, 0, 0
+        }, "Blush Fashion Doll")
+    end
+})
+
+Tabs.Bundles:AddButton({
+    Title = "Mini Plushie",
+    Description = "(Boy, Girl) U Need Small Body Ava",
+    Callback = function()
+        fireAvatarChange({
+            18865136555, 14579959062, 14579959191, 14579959249, 14579963667, 1
+        }, "Mini Plushie")
+    end
+})
+
+-----------------------------------------------------------
+-- Section Credits
+-----------------------------------------------------------
+Tabs.Credits:AddSection("Update Logs📜/Credit 💳")
+Tabs.Credits:AddParagraph({
+    Title = "Update Logs 📜",
+    Content = "Added Bundles\nNew UI Library"
+})
+Tabs.Credits:AddParagraph({
+    Title = "Credit 💳",
+    Content = "Discord💬 user: z4trox"
+})
