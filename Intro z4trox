@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "z4trox hub Brookhaven Rp🏡",
-    SubTitle = "by z4trox",
+    Title = "Brookhaven Rp🏡",
+    SubTitle = "by (z4trox hub)",
     TabWidth = 160,
     Size = UDim2.fromOffset(480, 310),
     Acrylic = true,
@@ -12,13 +12,12 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- Fonction permettant de gérer le changement d'avatar.
--- Si le paramètre "id" est un nombre, on crée une table par défaut,
--- sinon, on considère qu'une table complète a été fournie.
+-- Fonction permettant de changer d'avatar.
+-- Si l'argument "id" est une table, on l'utilise tel quel ; sinon, on crée la table par défaut.
 local function fireAvatarChange(id, notificationTitle)
     local argsTable
     if type(id) == "table" then
-        argsTable = id  -- On s'attend à une table avec les indices [1] à [6]
+        argsTable = id
     else
         argsTable = {1, 1, 1, 1, 1, id}
     end
@@ -45,14 +44,16 @@ local function fireAvatarChange(id, notificationTitle)
     end
 end
 
+-- Création des tabs
 local Tabs = {
     Credits = Window:AddTab({ Title = "z4trox Hub Tab", Icon = "scroll" }),
     Avatar = Window:AddTab({ Title = "Avatar Tab", Icon = "shirt" }),
-    Bundles = Window:AddTab({ Title = "Bundle Tab", Icon = "users" })
+    Bundles = Window:AddTab({ Title = "Bundle Tab", Icon = "users" }),
+    Music = Window:AddTab({ Title = "Music Tab", Icon = "music" })
 }
 
 -----------------------------------------------------------
--- Section Avatar (général)
+-- Section Avatar
 -----------------------------------------------------------
 Tabs.Avatar:AddSection("Head ID (❓)/Yellow Pastel (🟡)")
 
@@ -63,7 +64,6 @@ Tabs.Avatar:AddInput("Head ID (❓)", {
     Numeric = true,
     Finished = true,
     Callback = function(s)
-        -- On s'assure que la valeur saisie est un nombre.
         fireAvatarChange(tonumber(s), "Loading")
         wait(1)
         game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -78,8 +78,6 @@ Tabs.Avatar:AddButton({
     Title = "Pastel Yellow (🟡)",
     Description = "",
     Callback = function()
-        -- Ici, on passe une chaîne. Selon l'implémentation côté serveur,
-        -- ce cas peut être géré de manière spécifique.
         fireAvatarChange("Pastel yellow", "Pastel Yellow Applied")
     end
 })
@@ -153,7 +151,7 @@ Tabs.Avatar:AddButton({
 })
 
 -----------------------------------------------------------
--- Section Bundles (avatars spécifiques via Rayfield IDs)
+-- Section Bundles (avatars spécifiques)
 -----------------------------------------------------------
 Tabs.Bundles:AddButton({
     Title = "Inf15 Thin",
@@ -182,6 +180,29 @@ Tabs.Bundles:AddButton({
         fireAvatarChange({
             18865136555, 14579959062, 14579959191, 14579959249, 14579963667, 1
         }, "Mini Plushie")
+    end
+})
+
+-----------------------------------------------------------
+-- Section Music
+-----------------------------------------------------------
+Tabs.Music:AddSection("Music Section")
+
+Tabs.Music:AddInput("Enter Music ID", {
+    Title = "Enter Music ID",
+    Default = "",
+    Placeholder = "Enter ID here",
+    Finished = true,
+    Callback = function(Value)
+        local args = {
+            [1] = "PickingScooterMusicText",
+            [2] = Value
+        }
+        local replicatedStorage = game:GetService("ReplicatedStorage")
+        local remote = replicatedStorage.RE:FindFirstChild("1NoMoto1rVehicle1s")
+        if remote then
+            remote:FireServer(unpack(args))
+        end
     end
 })
 
