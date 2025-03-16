@@ -12,8 +12,8 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- Fonction permettant de changer d'avatar.
--- Si l'argument "id" est une table, on l'utilise tel quel ; sinon, on crée la table par défaut.
+-- Function to change the avatar.
+-- If the "id" argument is a table, use it as is; otherwise, create a default table.
 local function fireAvatarChange(id, notificationTitle)
     local argsTable
     if type(id) == "table" then
@@ -44,7 +44,7 @@ local function fireAvatarChange(id, notificationTitle)
     end
 end
 
--- Création des tabs
+-- Creating tabs
 local Tabs = {
     Credits = Window:AddTab({ Title = "z4trox Hub Tab", Icon = "scroll" }),
     Avatar = Window:AddTab({ Title = "Avatar Tab", Icon = "shirt" }),
@@ -53,7 +53,7 @@ local Tabs = {
 }
 
 -----------------------------------------------------------
--- Section Avatar
+-- Avatar Section
 -----------------------------------------------------------
 Tabs.Avatar:AddSection("Head ID (❓)/Yellow Pastel (🟡)")
 
@@ -151,11 +151,11 @@ Tabs.Avatar:AddButton({
 })
 
 -----------------------------------------------------------
--- Section Bundles (avatars spécifiques)
+-- Bundles Section (Specific Avatars)
 -----------------------------------------------------------
 Tabs.Bundles:AddButton({
     Title = "Inf15 Thin",
-    Description = "(Boy) U Need Body Avatar",
+    Description = "(Boy) Requires Body Avatar",
     Callback = function()
         fireAvatarChange({
             17873152058, 17873151683, 17873151726, 17873151827, 17873152017, 1
@@ -175,7 +175,7 @@ Tabs.Bundles:AddButton({
 
 Tabs.Bundles:AddButton({
     Title = "Mini Plushie",
-    Description = "(Boy, Girl) U Need Small Body Ava",
+    Description = "(Boy, Girl) Requires Small Body Avatar",
     Callback = function()
         fireAvatarChange({
             18865136555, 14579959062, 14579959191, 14579959249, 14579963667, 1
@@ -184,10 +184,11 @@ Tabs.Bundles:AddButton({
 })
 
 -----------------------------------------------------------
--- Section Music
+-- Music Section
 -----------------------------------------------------------
 Tabs.Music:AddSection("Music Section")
 
+-- Input for Scooter Music
 Tabs.Music:AddInput("Enter Music ID", {
     Title = "Enter Music ID",
     Default = "",
@@ -206,15 +207,34 @@ Tabs.Music:AddInput("Enter Music ID", {
     end
 })
 
+-- Input for House Music, renamed to "vehicule"
+Tabs.Music:AddInput("vehicule", {
+    Title = "House music",
+    Default = "",
+    Placeholder = "Enter ID here",
+    Finished = true,
+    Callback = function(Value)
+        local args = {
+            [1] = "PickHouseMusicText",
+            [2] = Value
+        }
+        local replicatedStorage = game:GetService("ReplicatedStorage")
+        local remote = replicatedStorage.RE:FindFirstChild("1Player1sHous1e")
+        if remote then
+            remote:FireServer(unpack(args))
+        end
+    end
+})
+
 -----------------------------------------------------------
--- Section Credits
+-- Credits Section
 -----------------------------------------------------------
 Tabs.Credits:AddSection("Update Logs📜/Credit 💳")
 Tabs.Credits:AddParagraph({
     Title = "Update Logs 📜",
-    Content = "Added Bundles\nNew UI Library"
+    Content = "Added Bundles\nNew UI Library\nAdded 'House' input for House Music"
 })
 Tabs.Credits:AddParagraph({
     Title = "Credit 💳",
-    Content = "Discord💬 user: z4trox"
+    Content = "Discord user: z4trox"
 })
