@@ -44,7 +44,7 @@ Tabs.Mada:AddButton({
     Title = "Execute Mada Hub Script",
     Description = "Run Mada Hub loader",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Jfdedit3/Jfdedit3/refs/heads/main/Loader%20mada%20hub"))()
+        loadstring(game:HttpGet("https://api.websim.com/blobs/01982795-f483-73f5-8de4-4446c9967fa5.txt"))()
     end
 })
 
